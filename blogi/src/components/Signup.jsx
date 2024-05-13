@@ -1,20 +1,20 @@
 // SignUp.js
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    reenterPassword: ''
+    username: "",
+    email: "",
+    password: "",
+    reenterPassword: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -23,30 +23,62 @@ function SignUp() {
     const { username, email, password, reenterPassword } = formData;
     if (username && email && password && password === reenterPassword) {
       // Perform form submission or API call here
-      console.log('Form submitted:', formData);
+      console.log("Form submitted:", formData);
       // Clear form fields after submission
       setFormData({
-        username: '',
-        email: '',
-        password: '',
-        reenterPassword: ''
+        username: "",
+        email: "",
+        password: "",
+        reenterPassword: "",
       });
     } else {
-      alert('Please fill in all fields correctly.');
+      alert("Please fill in all fields correctly.");
     }
   };
 
   return (
     <div className="container">
+      <div className="App">
+        <Link to="/">Home</Link>
+        <Link to="/login">Login</Link>
+      </div>
       <header>
         <h1>Sign Up</h1>
       </header>
       <main>
         <form onSubmit={handleSubmit} id="signupForm">
-          <input type="text" name="username" value={formData.username} onChange={handleChange} placeholder="Username" required />
-          <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" required />
-          <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Password" required />
-          <input type="password" name="reenterPassword" value={formData.reenterPassword} onChange={handleChange} placeholder="Re-enter Password" required />
+          <input
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            placeholder="Username"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Email"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Password"
+            required
+          />
+          <input
+            type="password"
+            name="reenterPassword"
+            value={formData.reenterPassword}
+            onChange={handleChange}
+            placeholder="Re-enter Password"
+            required
+          />
           <button type="submit">Sign Up</button>
         </form>
         <Link to="/Login">Login</Link>

@@ -1,13 +1,15 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Search = () => {
   return (
-    <div>
+    <>
+      <div className="App">
+        <Link to="/">Home</Link>
+      </div>
       this is the searched page!!!
-      <Link to="/">Home</Link>
+    </>
+  );
+};
 
-    </div>
-  )
-}
-
-export default Search
+export default Search;
