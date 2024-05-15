@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 const Create = () => {
   return (
     <div>
-      <div className="App">
-        <Link to="/">Home</Link>
-        <Link to="/search">Search</Link>
+      <div className="links">
+        <Link className="link" to="/">Home</Link>
+        <Link className="link" to="/search">Search</Link>
       </div>
       This page is to create blogs!!!
     </div>

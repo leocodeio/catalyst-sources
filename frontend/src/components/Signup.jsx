@@ -37,10 +37,10 @@ function SignUp() {
   };
 
   return (
-    <div className="container">
-      <div className="App">
-        <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
+    <div>
+      <div className="links">
+        <Link className="link" to="/">Home</Link>
+        <Link className="link" to="/login">Login</Link>
       </div>
       <header>
         <h1>Sign Up</h1>
@@ -81,8 +81,8 @@ function SignUp() {
           />
           <button type="submit">Sign Up</button>
         </form>
-        <Link to="/Login">Login</Link>
-        <Link to="/">Home</Link>
+        <Link className="link" to="/Login">Login</Link>
+        <Link className="link" to="/">Home</Link>
       </main>
     </div>
   );

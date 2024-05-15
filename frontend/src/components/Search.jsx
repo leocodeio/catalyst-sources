@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const Search = () => {
   return (
     <>
-      <div className="App">
-        <Link to="/">Home</Link>
+      <div className="links">
+        <Link className="link" to="/">Home</Link>
       </div>
       this is the searched page!!!
     </>

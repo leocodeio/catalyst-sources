@@ -37,9 +37,9 @@ function Login() {
 
   return (
     <div className="container">
-      <div className="App">
-        <Link to="/">Home</Link>
-        <Link to="/signup">Signup</Link>
+      <div className="links">
+        <Link className="link" to="/">Home</Link>
+        <Link className="link" to="/signup">Signup</Link>
       </div>
       <header>
         <h1>Login</h1>
@@ -64,10 +64,10 @@ function Login() {
           />
           <button type="submit">Login</button>
         </form>
-        <Link to="/signup" id="signup">
+        <Link className="link" to="/signup" id="signup">
           Sign Up
         </Link>
-        <Link to="/">Home</Link>
+        <Link className="link" to="/">Home</Link>
       </main>
     </div>
   );

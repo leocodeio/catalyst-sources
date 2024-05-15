@@ -6,17 +6,17 @@ function Header({ isLoggedIn, userName }) {
   return (
     <header>
       <h1>Blog Website</h1>
-      <div className="list_div">
+      <div className="links">
         {!isLoggedIn ? (
           <>
-            <Link to="/Login" id="Login">Login</Link>
-            <Link to="/signup" id="signup">Sign Up</Link>
-            <Link to="/Login" className="write_blog">Create your own Blog</Link>
+            <Link className="link" to="/Login" id="Login">Login</Link>
+            <Link className="link" to="/signup" id="signup">Sign Up</Link>
+            <Link className="link" to="/Login">Create your own Blog</Link>
           </>
         ) : (
           <>
             <h1>Hello {userName}</h1>
-            <Link to="/create" className="write_blog">Create your own Blog</Link>
+            <Link className="link" to="/create">Create your own Blog</Link>
           </>
         )}
       </div>

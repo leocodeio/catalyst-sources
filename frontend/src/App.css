@@ -1,6 +1,29 @@
-.App{
+* {
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  background: linear-gradient(to right, #86a8e7, #91eae4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.links{
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+}
+
+.link{
+  text-decoration: none;
+  margin: 20px;
+}
+
+h1{
+  text-align: center;
 }
