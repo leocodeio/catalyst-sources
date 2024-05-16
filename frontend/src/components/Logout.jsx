@@ -1,8 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {
+  const navigate=useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("isLoggedin"); // Remove item
+    localStorage.removeItem("email"); // Remove item
+    navigate("/");
   };
 
   return (

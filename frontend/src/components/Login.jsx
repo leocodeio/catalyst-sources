@@ -36,6 +36,7 @@ function Login() {
           localStorage.setItem("isLoggedin", "true"); // Set as string
           localStorage.setItem("email", email);
           navigate('/'); // Redirect to home page
+          // console.log(localStorage.isLoggedin,localStorage.email);
         } else {
           console.log('Login failed');
         }
