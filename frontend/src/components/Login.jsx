@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 function Login() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -30,14 +33,15 @@ function Login() {
     
         if (response.status === 200) {
           console.log('Login successful');
+          localStorage.setItem("isLoggedin", "true"); // Set as string
+          localStorage.setItem("email", email);
+          navigate('/'); // Redirect to home page
         } else {
           console.log('Login failed');
         }
       } catch (error) {
         console.error('Error:', error);
       }
-      localStorage.setItem("isLoggedin", "true"); // Set as string
-      localStorage.setItem("email", email);
     } else {
       alert("Please fill in all fields.");
     }
@@ -75,7 +79,6 @@ function Login() {
         <Link className="link" to="/signup" id="signup">
           Sign Up
         </Link>
-        <Link className="link" to="/">Home</Link>
       </main>
     </div>
   );
