@@ -6,7 +6,6 @@ const Create = () => {
     <div>
       <div className="links">
         <Link className="link" to="/">Home</Link>
-        <Link className="link" to="/search">Search</Link>
       </div>
       This page is to create blogs!!!
     </div>
