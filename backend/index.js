@@ -38,11 +38,10 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/create", async (req, res) => {
-  const { heading, description, content } = req.body;
+  const { heading, description, content ,email} = req.body;
   console.log("heading:", heading);
   console.log("description:", description);
   console.log("content:", content);
-  const email = "t@t.c";
   
   try {
     const user = new UserBlog({

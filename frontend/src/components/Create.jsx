@@ -20,9 +20,10 @@ function Create() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { heading, description, content } = formData;
+    const email=localStorage.email;
     if (heading && description && content) {
       try {
-        const response = await axios.post('http://localhost:3001/create', { heading, description, content });
+        const response = await axios.post('http://localhost:3001/create', { heading, description, content ,email});
         console.log(response.data);
         if (response.status === 200){
           navigate('/');
