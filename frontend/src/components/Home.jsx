@@ -13,7 +13,7 @@ const Home = () => {
         <Link className="link" to="/signup">Signup</Link>
         <Link className="link" to="/search">Search</Link>
       </div>
-      <Header />
+      <Header isLoggedIn={localStorage.isLoggedin} userName={localStorage.userName}/>
       <SearchForm />
       <BlogCard />
     </div>

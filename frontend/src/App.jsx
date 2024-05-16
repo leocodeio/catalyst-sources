@@ -2,6 +2,7 @@ import './App.css';
 import Create from './components/Create';
 import Home from './components/Home';
 import Login from './components/Login';
+import Logout from './components/Logout';
 import Search from './components/Search';
 import Signup from './components/Signup';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -16,6 +17,8 @@ function App() {
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/search" element={<Search />} />
         <Route exact path="/create" element={<Create />} />
+        <Route exact path="/logout" element={<Logout />} />
+
       </Routes>
     </Router>
   );

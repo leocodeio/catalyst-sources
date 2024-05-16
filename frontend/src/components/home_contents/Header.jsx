@@ -1,22 +1,21 @@
-// Header.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Header({ isLoggedIn, userName }) {
+function Header({ isLoggedin, userName }) {
   return (
     <header>
       <h1>Blog Website</h1>
       <div className="links">
-        {!isLoggedIn ? (
+        {!isLoggedin ? (
           <>
-            <Link className="link" to="/Login" id="Login">Login</Link>
-            <Link className="link" to="/signup" id="signup">Sign Up</Link>
-            <Link className="link" to="/Login">Create your own Blog</Link>
+            <Link className="link" to="/login">Login</Link>
+            <Link className="link" to="/signup">Sign Up</Link>
           </>
         ) : (
           <>
             <h1>Hello {userName}</h1>
             <Link className="link" to="/create">Create your own Blog</Link>
+            <Link className="link" to="/logout">Logout</Link>
           </>
         )}
       </div>

@@ -1,10 +1,11 @@
 // SignUp.js
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 function SignUp() {
   const [formData, setFormData] = useState({
-    username: "",
+    name: "",
     email: "",
     password: "",
     reenterPassword: "",
@@ -18,15 +19,19 @@ function SignUp() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { username, email, password, reenterPassword } = formData;
-    if (username && email && password && password === reenterPassword) {
-      // Perform form submission or API call here
+    const { name, email, password, reenterPassword } = formData;
+    if (name && email && password && password === reenterPassword) {
+      try {
+        const response = await axios.post('http://localhost:3001/signup', { name,email, password});
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error:', error);
+      }
       console.log("Form submitted:", formData);
-      // Clear form fields after submission
       setFormData({
-        username: "",
+        name: "",
         email: "",
         password: "",
         reenterPassword: "",
@@ -49,10 +54,10 @@ function SignUp() {
         <form onSubmit={handleSubmit} id="signupForm">
           <input
             type="text"
-            name="username"
-            value={formData.username}
+            name="name"
+            value={formData.name}
             onChange={handleChange}
-            placeholder="Username"
+            placeholder="name"
             required
           />
           <input

@@ -1,14 +1,12 @@
-// Login.js
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 function Login() {
   const [formData, setFormData] = useState({
-    username: "",
+    email: "",
     password: "",
   });
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -17,19 +15,29 @@ function Login() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { username, password } = formData;
-    if (username && password) {
-      // Perform form submission or API call here
+    const { email, password } = formData;
+    if (email && password) {
       console.log("Form submitted:", formData);
-      // Clear form fields after submission
       setFormData({
-        username: "",
+        email: "",
         password: "",
       });
-      // Redirect user to home or perform any necessary action
-      // window.location.href = 'home.php';
+      try {
+        const response = await axios.post('http://localhost:3001/login', { email, password });
+        console.log('Response:', response);
+    
+        if (response.status === 200) {
+          console.log('Login successful');
+        } else {
+          console.log('Login failed');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+      localStorage.setItem("isLoggedin", "true"); // Set as string
+      localStorage.setItem("email", email);
     } else {
       alert("Please fill in all fields.");
     }
@@ -48,10 +56,10 @@ function Login() {
         <form onSubmit={handleSubmit} id="loginForm">
           <input
             type="text"
-            name="username"
-            value={formData.username}
+            name="email"
+            value={formData.email}
             onChange={handleChange}
-            placeholder="Username"
+            placeholder="email"
             required
           />
           <input
