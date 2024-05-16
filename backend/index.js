@@ -3,6 +3,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const User = require("./models/User");
+const UserBlog = require("./models/UserBlog");
+
 
 const app = express();
 const port = 3001;
@@ -34,6 +36,30 @@ app.post("/signup", async (req, res) => {
     res.status(500).send("Error saving user to database");
   }
 });
+
+app.post("/create", async (req, res) => {
+  const { heading, description, content } = req.body;
+  console.log("heading:", heading);
+  console.log("description:", description);
+  console.log("content:", content);
+  const email = "t@t.c";
+  
+  try {
+    const user = new UserBlog({
+      email,
+      heading,
+      description,
+      content,
+    });
+    await user.save();
+    console.log("Blog saved to database:", user);
+    res.status(201).json(user);
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send("Error saving blog to database");
+  }
+});
+
 
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
