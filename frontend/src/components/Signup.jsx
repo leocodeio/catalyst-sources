@@ -1,6 +1,5 @@
-// SignUp.js
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";  // Import useNavigate
 import axios from 'axios';
 import './blog.css';
 
@@ -11,6 +10,8 @@ function SignUp() {
     password: "",
     reenterPassword: "",
   });
+
+  const navigate = useNavigate();  // Initialize navigate hook
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,6 +28,7 @@ function SignUp() {
       try {
         const response = await axios.post('http://localhost:3001/signup', { name, email, password });
         console.log(response.data);
+        navigate('/login');  // Redirect to login after successful signup
       } catch (error) {
         console.error('Error:', error);
       }
@@ -43,7 +45,7 @@ function SignUp() {
   };
 
   return (
-    <div className="container">  {/* Added the container class */}
+    <div className="container">
       <div className="links">
         <Link className="link" to="/">Home</Link>
         <Link className="link" to="/login">Login</Link>
@@ -100,6 +102,8 @@ export default SignUp;
 
 
 
+
+
 // // SignUp.js
 // import React, { useState } from "react";
 // import { Link } from "react-router-dom";
@@ -127,7 +131,7 @@ export default SignUp;
 //     const { name, email, password, reenterPassword } = formData;
 //     if (name && email && password && password === reenterPassword) {
 //       try {
-//         const response = await axios.post('http://localhost:3001/signup', { name,email, password});
+//         const response = await axios.post('http://localhost:3001/signup', { name, email, password });
 //         console.log(response.data);
 //       } catch (error) {
 //         console.error('Error:', error);
@@ -145,7 +149,7 @@ export default SignUp;
 //   };
 
 //   return (
-//     <div>
+//     <div className="container">  {/* Added the container class */}
 //       <div className="links">
 //         <Link className="link" to="/">Home</Link>
 //         <Link className="link" to="/login">Login</Link>
@@ -160,7 +164,7 @@ export default SignUp;
 //             name="name"
 //             value={formData.name}
 //             onChange={handleChange}
-//             placeholder="name"
+//             placeholder="Name"
 //             required
 //           />
 //           <input
@@ -189,9 +193,6 @@ export default SignUp;
 //           />
 //           <button type="submit">Sign Up</button>
 //         </form>
-//         <br></br>
-//         {/* <Link className="link" to="/Login">Login</Link>
-//         <Link className="link" to="/">Home</Link> */}
 //       </main>
 //     </div>
 //   );
