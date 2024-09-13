@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import './blog.css';
 
 function Login() {
   const navigate = useNavigate();
@@ -77,9 +78,9 @@ function Login() {
           />
           <button type="submit">Login</button>
         </form>
-        <Link className="link" to="/signup" id="signup">
+        {/* <Link className="link" to="/signup" id="signup">
           Sign Up
-        </Link>
+        </Link> */}
       </main>
     </div>
   );

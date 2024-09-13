@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./home_contents/Header";
 import SearchForm from "./home_contents/SearchForm";
 import BlogCard from "./home_contents/BlogCard";
+import './blog.css';
 
 const Home = () => {
   return (
