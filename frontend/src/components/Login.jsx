@@ -23,21 +23,13 @@ function Login() {
     e.preventDefault();
     const { email, password } = formData;
     if (email && password) {
-      console.log("Form submitted:", formData);
-      setFormData({
-        email: "",
-        password: "",
-      });
       try {
         const response = await axios.post('http://localhost:3001/login', { email, password });
-        console.log('Response:', response);
-    
         if (response.status === 200) {
-          console.log('Login successful');
           localStorage.setItem("isLoggedin", "true"); // Set as string
-          localStorage.setItem("email", email);
+          localStorage.setItem("email", email); // Save the email
+          localStorage.setItem("username", response.data.user); // Save the user's name
           navigate('/'); // Redirect to home page
-          // console.log(localStorage.isLoggedin,localStorage.email);
         } else {
           console.log('Login failed');
         }
@@ -65,7 +57,7 @@ function Login() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="email"
+            placeholder="Email"
             required
           />
           <input
@@ -78,9 +70,6 @@ function Login() {
           />
           <button type="submit">Login</button>
         </form>
-        {/* <Link className="link" to="/signup" id="signup">
-          Sign Up
-        </Link> */}
       </main>
     </div>
   );

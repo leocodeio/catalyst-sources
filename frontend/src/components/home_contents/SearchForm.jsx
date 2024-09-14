@@ -4,10 +4,10 @@ import axios from 'axios';
 function SearchForm() {
   const [query, setQuery] = useState('');
   const [blog, setBlog] = useState(null); // To store the found blog
-  const [name, setName] = useState('');   // To store the user's name
   const [comment, setComment] = useState('');
   const [rating, setRating] = useState(5); // Default rating is 5
   const [error, setError] = useState(null); // To handle any error
+  const [user, setUser] = useState(localStorage.getItem('username')); // Get logged-in user
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -26,21 +26,26 @@ function SearchForm() {
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
+    if (!localStorage.getItem('isLoggedin')) {
+      alert('Please log in to leave a comment.');
+      return;
+    }
+
     if (blog) {
       try {
+        const username = localStorage.getItem('username');
         await axios.post(`http://localhost:3001/add-comment-rating/${blog._id}`, {
           comment,
           rating,
-          user: name || 'Anonymous',  // Send the name or default to 'Anonymous'
+          user: username || 'Anonymous',  // Send the logged-in user's name
         });
         setBlog((prevBlog) => ({
           ...prevBlog,
-          comments: [...prevBlog.comments, { user: name || 'Anonymous', comment, date: new Date() }],
+          comments: [...prevBlog.comments, { user: username || 'Anonymous', comment, date: new Date() }],
           ratings: [...prevBlog.ratings, rating],
         }));
         setComment(''); // Clear comment input
         setRating(5);   // Reset rating to default
-        setName('');    // Clear name input
       } catch (error) {
         console.error('Failed to add comment/rating:', error);
       }
@@ -103,14 +108,6 @@ function SearchForm() {
             <div style={{ marginTop: '20px' }}>
               <h3>Leave a Comment and Rating</h3>
               <form onSubmit={handleCommentSubmit}>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Your name"
-                  required
-                />
-                <br />
                 <textarea
                   value={comment}
                   onChange={(e) => setComment(e.target.value)}
