@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SocialMediaIcons from './SocialMediaIcons';
 
 function Header({ isLoggedin, email }) {
 
-  console.log(isLoggedin,email);
+  console.log(isLoggedin, email);
   return (
     <header>
       <h1>Blog Website</h1>
@@ -18,10 +19,12 @@ function Header({ isLoggedin, email }) {
           <>
             <h1>Hello {email}</h1>
             <Link className="link" to="/create">Create your own Blog</Link>
+            <Link className="link" to="/">Home</Link> {/* Home link added */}
             <Link className="link" to="/logout">Logout</Link>
           </>
         )}
       </div>
+      <SocialMediaIcons />
     </header>
   );
 }
