@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
-import './blog.css';
+import styles from './LoginSignup.module.css'; // Import CSS module
 
 function Login() {
   const navigate = useNavigate();
@@ -42,13 +42,13 @@ function Login() {
   };
 
   return (
-    <div className="container">
-      <div className="links">
-        <Link className="link" to="/">Home</Link>
-        <Link className="link" to="/signup">Signup</Link>
+    <div className={styles.container}>
+      <div className={styles.links}>
+        <Link className={styles.link} to="/">Home</Link>
+        <Link className={styles.link} to="/signup">Signup</Link>
       </div>
       <header>
-        <h1>Login</h1>
+        <h1 className={styles.header}>Login</h1>
       </header>
       <main>
         <form onSubmit={handleSubmit} id="loginForm">
@@ -59,6 +59,7 @@ function Login() {
             onChange={handleChange}
             placeholder="Email"
             required
+            className={styles.input}
           />
           <input
             type="password"
@@ -67,8 +68,9 @@ function Login() {
             onChange={handleChange}
             placeholder="Password"
             required
+            className={styles.input}
           />
-          <button type="submit">Login</button>
+          <button type="submit" className={styles.button}>Login</button>
         </form>
       </main>
     </div>

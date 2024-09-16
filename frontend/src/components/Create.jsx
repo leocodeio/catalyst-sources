@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
-import './blog.css';
+//import './blog.css';
 
 function Create() {
   const [formData, setFormData] = useState({

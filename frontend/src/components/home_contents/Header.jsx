@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SocialMediaIcons from './SocialMediaIcons';
 
 function Header({ isLoggedin, email }) {
 
@@ -23,6 +24,7 @@ function Header({ isLoggedin, email }) {
           </>
         )}
       </div>
+      <SocialMediaIcons />
     </header>
   );
 }

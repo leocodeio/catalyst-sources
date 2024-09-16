@@ -27,3 +27,21 @@ body {
 h1{
   text-align: center;
 }
+
+
+/*Social Media Components*/
+
+.social-media-icons {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.social-media-icons a {
+  margin: 0 15px;
+  color: #000; /* Black color for icons */
+  text-decoration: none;
+}
+
+.social-media-icons a:hover {
+  color: #0077b5; /* Example hover color */
+}

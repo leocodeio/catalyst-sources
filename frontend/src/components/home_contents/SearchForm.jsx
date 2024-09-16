@@ -81,11 +81,11 @@ function SearchForm() {
           {/* Blog details inside the box */}
           <div style={{ marginTop: '20px', border: '1px solid black', padding: '10px' }}>
             <h2>{blog.heading}</h2>
-            <p><strong>Description:</strong> {blog.description}</p>
-            <p><strong>Content:</strong> {blog.content}</p>
-            <p><strong>Genre:</strong> {blog.genre}</p>
-            <p><strong>Average Rating:</strong> {calculateAverageRating(blog.ratings)} / 5</p>
-            <p><strong>Created At:</strong> {new Date(blog.createdAt).toLocaleString()}</p>
+            <p><strong>Description:</strong> <br></br>{blog.description}</p>
+            <p><strong>Content:</strong> <br></br>{blog.content}</p>
+            <p><strong>Genre:</strong> <br></br>{blog.genre}</p>
+            <p><strong>Average Rating:</strong> <br></br>{calculateAverageRating(blog.ratings)} / 5</p>
+            <p><strong>Created At:</strong> <br></br>{new Date(blog.createdAt).toLocaleString()}</p>
           </div>
 
           {/* Comments and leave a comment section inside a separate box */}
@@ -93,10 +93,11 @@ function SearchForm() {
             {/* Comments section */}
             <div>
               <h3>Comments</h3>
+              <br></br>
               {blog.comments.length > 0 ? (
                 blog.comments.map((c, index) => (
                   <div key={index} style={{ marginBottom: '10px' }}>
-                    <strong>{c.user}</strong>: {c.comment} ({new Date(c.date).toLocaleString()})
+                    <strong>{c.user}</strong>: <br></br>{c.comment} ({new Date(c.date).toLocaleString()})
                   </div>
                 ))
               ) : (
@@ -107,6 +108,7 @@ function SearchForm() {
             {/* Leave a comment and rate the blog section */}
             <div style={{ marginTop: '20px' }}>
               <h3>Leave a Comment and Rating</h3>
+              <br></br>
               <form onSubmit={handleCommentSubmit}>
                 <textarea
                   value={comment}
@@ -130,7 +132,7 @@ function SearchForm() {
           </div>
         </>
       )}
-    </div>
+    </div> 
   );
 }
 

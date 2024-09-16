@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";  // Import useNavigate
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
-import './blog.css';
+import styles from './LoginSignup.module.css'; // Import CSS module
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -32,7 +32,6 @@ function SignUp() {
       } catch (error) {
         console.error('Error:', error);
       }
-      console.log("Form submitted:", formData);
       setFormData({
         name: "",
         email: "",
@@ -45,13 +44,13 @@ function SignUp() {
   };
 
   return (
-    <div className="container">
-      <div className="links">
-        <Link className="link" to="/">Home</Link>
-        <Link className="link" to="/login">Login</Link>
+    <div className={styles.container}>
+      <div className={styles.links}>
+        <Link className={styles.link} to="/">Home</Link>
+        <Link className={styles.link} to="/login">Login</Link>
       </div>
       <header>
-        <h1>Sign Up</h1>
+        <h1 className={styles.header}>Sign Up</h1>
       </header>
       <main>
         <form onSubmit={handleSubmit} id="signupForm">
@@ -62,6 +61,7 @@ function SignUp() {
             onChange={handleChange}
             placeholder="Name"
             required
+            className={styles.input}
           />
           <input
             type="email"
@@ -70,6 +70,7 @@ function SignUp() {
             onChange={handleChange}
             placeholder="Email"
             required
+            className={styles.input}
           />
           <input
             type="password"
@@ -78,6 +79,7 @@ function SignUp() {
             onChange={handleChange}
             placeholder="Password"
             required
+            className={styles.input}
           />
           <input
             type="password"
@@ -86,8 +88,9 @@ function SignUp() {
             onChange={handleChange}
             placeholder="Re-enter Password"
             required
+            className={styles.input}
           />
-          <button type="submit">Sign Up</button>
+          <button type="submit" className={styles.button}>Sign Up</button>
         </form>
       </main>
     </div>
