@@ -5,8 +5,8 @@
   "elements": [
     {
       "type": "text",
-      "version": 80,
-      "versionNonce": 1426287845,
+      "version": 81,
+      "versionNonce": 195488215,
       "isDeleted": false,
       "id": "4NXzgP0d_2NU7oDB_wNPK",
       "fillStyle": "solid",
@@ -26,7 +26,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1726455244365,
+      "updated": 1726496971063,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -37,12 +37,12 @@
       "containerId": null,
       "originalText": "feed\nnavigation\nonly users logged in should be able to like and comment",
       "lineHeight": 1.25,
-      "baseline": 68
+      "baseline": 67
     },
     {
       "type": "text",
-      "version": 64,
-      "versionNonce": 14811115,
+      "version": 65,
+      "versionNonce": 368476953,
       "isDeleted": false,
       "id": "7xbbMo5TNsWSzxdZ45jhP",
       "fillStyle": "solid",
@@ -62,7 +62,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1726455244366,
+      "updated": 1726496971064,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -73,12 +73,12 @@
       "containerId": null,
       "originalText": "future implementations\nprofile pic\ndashboard\nedit profile\n\n\n",
       "lineHeight": 1.25,
-      "baseline": 168
+      "baseline": 167
     },
     {
       "type": "text",
-      "version": 35,
-      "versionNonce": 1982761029,
+      "version": 36,
+      "versionNonce": 1291425527,
       "isDeleted": false,
       "id": "LFRI-gOrhingS_U3ak3dc",
       "fillStyle": "solid",
@@ -98,7 +98,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1726455244366,
+      "updated": 1726496971064,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -109,7 +109,7 @@
       "containerId": null,
       "originalText": "genre should be visible in feed",
       "lineHeight": 1.25,
-      "baseline": 18
+      "baseline": 17
     }
   ],
   "appState": {
