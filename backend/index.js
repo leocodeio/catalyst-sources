@@ -227,27 +227,17 @@ app.get('/blogs/:id', async (req, res) => {
 
 
 
-
-
-
 // Get 3 blogs, one from each genre
-app.get("/blogs/feed", async (req, res) => {
+app.get("/fetch-feed", async (req, res) => {
+  console.log("Fetching top 3 blogs");
   try {
-    const genres = ["Action", "Adventure", "Thriller"]; // Example genres
-    const blogs = await Promise.all(
-      genres.map(async (genre) => {
-        return await UserBlog.findOne({ genre }).sort({ createdAt: -1 }); // Find latest blog per genre
-      })
-    );
-    res.status(200).json(blogs.filter(Boolean)); // Filter out nulls if no blog found
+    console.log("Fetching blogs from database...");
+    const topBlogs = await UserBlog.find() 
+    res.status(200).json(topBlogs);
   } catch (error) {
     res.status(500).send("Error fetching blogs");
   }
 });
-
-
-
-
 
 
 
