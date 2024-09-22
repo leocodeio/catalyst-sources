@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import styles from './LoginSignup.module.css'; // Import CSS module
 
 function Login() {
   const navigate = useNavigate();
@@ -22,21 +23,13 @@ function Login() {
     e.preventDefault();
     const { email, password } = formData;
     if (email && password) {
-      console.log("Form submitted:", formData);
-      setFormData({
-        email: "",
-        password: "",
-      });
       try {
         const response = await axios.post('http://localhost:3001/login', { email, password });
-        console.log('Response:', response);
-    
         if (response.status === 200) {
-          console.log('Login successful');
           localStorage.setItem("isLoggedin", "true"); // Set as string
-          localStorage.setItem("email", email);
+          localStorage.setItem("email", email); // Save the email
+          localStorage.setItem("username", response.data.user); // Save the user's name
           navigate('/'); // Redirect to home page
-          // console.log(localStorage.isLoggedin,localStorage.email);
         } else {
           console.log('Login failed');
         }
@@ -49,13 +42,13 @@ function Login() {
   };
 
   return (
-    <div className="container">
-      <div className="links">
-        <Link className="link" to="/">Home</Link>
-        <Link className="link" to="/signup">Signup</Link>
+    <div className={styles.container}>
+      <div className={styles.links}>
+        <Link className={styles.link} to="/">Home</Link>
+        <Link className={styles.link} to="/signup">Signup</Link>
       </div>
       <header>
-        <h1>Login</h1>
+        <h1 className={styles.header}>Login</h1>
       </header>
       <main>
         <form onSubmit={handleSubmit} id="loginForm">
@@ -64,8 +57,9 @@ function Login() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="email"
+            placeholder="Email"
             required
+            className={styles.input}
           />
           <input
             type="password"
@@ -74,12 +68,10 @@ function Login() {
             onChange={handleChange}
             placeholder="Password"
             required
+            className={styles.input}
           />
-          <button type="submit">Login</button>
+          <button type="submit" className={styles.button}>Login</button>
         </form>
-        <Link className="link" to="/signup" id="signup">
-          Sign Up
-        </Link>
       </main>
     </div>
   );
