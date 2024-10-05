@@ -1,47 +1,5 @@
-* {
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-
-body {
-  background: linear-gradient(to right, #86a8e7, #91eae4);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.links{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.link{
-  text-decoration: none;
-  margin: 20px;
-}
-
-h1{
-  text-align: center;
-}
-
-
-/*Social Media Components*/
-
-.social-media-icons {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.social-media-icons a {
-  margin: 0 15px;
-  color: #000; /* Black color for icons */
-  text-decoration: none;
-}
-
-.social-media-icons a:hover {
-  color: #0077b5; /* Example hover color */
-}
+.link {
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  

@@ -125,10 +125,7 @@ const app = express();
 const port = 3001;
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/blog", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect("mongodb://localhost:27017/blog");
 
 // Middleware
 app.use(bodyParser.json());
@@ -224,6 +221,15 @@ app.get('/blogs/:id', async (req, res) => {
 });
 
 
+// Get all blogs
+app.get("/blogs", async (req, res) => {
+  try {
+    const blogs = await UserBlog.find(); // Retrieve all blogs from the database
+    res.status(200).json(blogs);
+  } catch (error) {
+    res.status(500).send("Error fetching blogs");
+  }
+});
 
 
 
@@ -231,18 +237,15 @@ app.get('/blogs/:id', async (req, res) => {
 
 
 // Get 3 blogs, one from each genre
-app.get("/blogs/feed", async (req, res) => {
+app.get("/fetch-feed", async (req, res) => {
+  console.log("Fetching top 3 blogs");
   try {
-    const genres = ["Action", "Adventure", "Thriller"]; // Example genres
-    const blogs = await Promise.all(
-      genres.map(async (genre) => {
-        return await UserBlog.findOne({ genre }).sort({ createdAt: -1 }); // Find latest blog per genre
-      })
-    );
-    res.status(200).json(blogs.filter(Boolean)); // Filter out nulls if no blog found
+    console.log("Fetching blogs from database...");
+    const topBlogs = await UserBlog.find() 
+    res.status(200).json(topBlogs);
   } catch (error) {
     res.status(500).send("Error fetching blogs");
-  }
+  }
 });
 
 
